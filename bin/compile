@@ -230,8 +230,8 @@ cat > "$APP_CHECKOUT_DIR"/.profile.d/path.sh <<EOF
   export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$HOME/$COMPILE_DIR_SUFFIX/lib
 EOF
 
-echo 'Cleaning up $(pwd) ..........'
-(cd ${COMPILE_DIR}/app && \
+echo "Cleaning up $(pwd) .........."
+(cd ${COMPILE_DIR}/app && ls && \
   find . -type f -name 'README.md' -delete \
     && find . -type f -name 'LICENSE' -delete \
     && find . -type f -name '*.d.ts' -delete \

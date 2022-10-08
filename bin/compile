@@ -9,17 +9,6 @@ set -e
 # debug verbosely.
 #set -x
 
-if [ -n "$BUILDPACK_VERBOSE" ]; then
-  echo "BUILD_DIR=${1}"
-  echo "CACHE_DIR=${2}"
-  echo "ENV_DIR=${3}"
-
-  echo "What is in the /app folder now?"
-  ls /app
-  echo "What is in the BUILD_DIR now?"
-  ls $BUILD_DIR
-fi
-
 # Load config vars into environment (from https://devcenter.heroku.com/articles/buildpack-api)
 export_env_dir() {
   env_dir=$1
@@ -35,6 +24,17 @@ export_env_dir() {
 }
 
 export_env_dir $3
+
+if [ -n "$BUILDPACK_VERBOSE" ]; then
+  echo "BUILD_DIR=${1}"
+  echo "CACHE_DIR=${2}"
+  echo "ENV_DIR=${3}"
+
+  echo "What is in the /app folder now?"
+  ls /app
+  echo "What is in the BUILD_DIR now?"
+  ls $BUILD_DIR
+fi
 
 # Enable verbose debugging if configured to -- though this has to come after
 # we've loaded environment configs.

@@ -9,7 +9,7 @@ To use this with your meteor app and heroku:
 1. Set up your app to [deploy to heroku with git](https://devcenter.heroku.com/articles/git).
 2. Set your buildpack to the latest version from the [registry](https://devcenter.heroku.com/articles/buildpack-registry):
 
-        heroku buildpacks:set https://github.com/vatfree/meteor-buildpack-horse
+        heroku buildpacks:set https://github.com/vatfree/meteor-buildpack-horse.git
 
 3. Add the MongoLab addon:
 

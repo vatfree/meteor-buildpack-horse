@@ -9,9 +9,16 @@ set -e
 # debug verbosely.
 #set -x
 
-echo "BUILD_DIR=${1}"
-echo "CACHE_DIR=${2}"
-echo "ENV_DIR=${3}"
+if [ -n "$BUILDPACK_VERBOSE" ]; then
+  echo "BUILD_DIR=${1}"
+  echo "CACHE_DIR=${2}"
+  echo "ENV_DIR=${3}"
+
+  echo "What is in the /app folder now?"
+  ls /app
+  echo "What is in the BUILD_DIR now?"
+  ls $BUILD_DIR
+fi
 
 # Load config vars into environment (from https://devcenter.heroku.com/articles/buildpack-api)
 export_env_dir() {
@@ -105,7 +112,7 @@ if [ -e "$METEOR_DIR/.meteor/meteor" ]; then
   echo "-----> Existing meteor installation found, using it."
 else
   echo "-----> Installing meteor"
-  curl -sS "https://install.meteor.com/?release=$(cat $METEOR_DIR/.meteor/release | sed s/METEOR@//)" | HOME="$METEOR_DIR" /bin/sh
+  curl -sS "https://install.meteor.com/?release=$(cat $APP_CHECKOUT_DIR/.meteor/release | sed s/METEOR@//)" | HOME="$METEOR_DIR" /bin/sh
 fi
 # Function to execute meteor with proper HOME.
 function METEOR {

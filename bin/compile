@@ -235,6 +235,9 @@ echo "Cleaning up $(pwd) .........."
   find . -type f -name 'README.md' -delete \
     && find . -type f -name 'LICENSE' -delete \
     && find . -type f -name '*.d.ts' -delete \
+    && find . -type f -name 'package-lock.json' -delete \
+    && find . -type d -name 'lcov-report' -delete \
+    && find . -type d -name 'examples' -delete \
     && rm -r ./programs/server/npm/node_modules/meteor/babel-compiler/node_modules/typescript)
 
 #

@@ -236,6 +236,7 @@ echo "Cleaning up $(pwd) .........."
     && find . -type f -name 'LICENSE*' -delete \
     && find . -type f -name 'CHANGELOG*' -delete \
     && find . -type f -name '*.d.ts' -delete \
+    && find . -type f -name 'darwin-arm64v8' -delete \
     && find . -type f -name 'package-lock.json' -delete \
     && find . -type d -name 'lcov-report' -delete \
     && find . -type d -name 'examples' -delete \

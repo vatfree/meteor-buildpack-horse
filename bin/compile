@@ -237,7 +237,6 @@ echo "Cleaning up $(pwd) .........."
     && find . -type f -name 'CHANGELOG*' -delete \
     && find . -type f -name '*.d.ts' -delete \
     && find . -type f -name '*darwin-arm64v8*' -delete \
-    && find . -type f -name 'package-lock.json' -delete \
     && find . -type d -name 'coverage' -exec rm -rf {} + \
     && find . -type d -name 'examples' -exec rm -rf {} + \
     && rm -r ./programs/server/npm/node_modules/meteor/babel-compiler/node_modules/typescript)

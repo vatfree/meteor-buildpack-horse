@@ -233,8 +233,12 @@ EOF
 echo "Cleaning up $(pwd) .........."
 (cd ${COMPILE_DIR}/app && ls && \
   find . -type f -name 'README.md' -delete \
-    && find . -type f -name 'LICENSE' -delete \
+    && find . -type f -name 'CHANGELOG*' -delete \
     && find . -type f -name '*.d.ts' -delete \
+    && find . -type f -name '*darwin-arm64v8*' -delete \
+    && find . -type d -name 'coverage' -exec rm -rf {} + \
+    && find . -type d -name 'examples' -exec rm -rf {} + \
+    && find ./programs/server/npm/node_modules -type f -name 'package-lock.json' -delete \
     && rm -r ./programs/server/npm/node_modules/meteor/babel-compiler/node_modules/typescript)
 
 #
